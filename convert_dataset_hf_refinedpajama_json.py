@@ -197,9 +197,14 @@ def build_hf_dataset(
     Returns:
         An IterableDataset.
     """
+    # hf_dataset = hf_datasets.load_dataset(
+    #     path=dataset_name, data_dir=sub, split=split, streaming=True
+    # )
+
     hf_dataset = hf_datasets.load_dataset(
-        path=dataset_name, data_dir=sub, split=split, streaming=True
+        path=os.path.join(dataset_name, sub), split=split, streaming=True
     )
+    
     # num_rows = len(hf_dataset)
     # print('Number of samples: ', num_rows)
     if 'refinedweb' in sub or 'starcoder' in sub:
