@@ -150,6 +150,7 @@ def parse_args() -> Namespace:
     parser.add_argument("--eos_text", type=str, required=False, default=None)
     parser.add_argument("--no_wrap", default=False, action="store_true")
     parser.add_argument("--num_workers", type=int, required=False, default=None)
+    parser.add_argument('hf_split', type=str, required=False, default="train", help='The dataset split to use. Default to "train".')
 
     parsed = parser.parse_args()
 
@@ -202,7 +203,7 @@ def build_hf_dataset(
     # )
 
     hf_dataset = hf_datasets.load_dataset(
-        path=os.path.join(dataset_name, sub), split=split, streaming=True
+        path=os.path.join(dataset_name, sub), split=split
     )
     
     # num_rows = len(hf_dataset)
@@ -331,8 +332,8 @@ def process_sub(sub, args):
         mode = ConcatMode.NO_CONCAT
         tokenizer = None
         columns = {"text": "str"}
-
-    hf_split = "train"
+        
+    hf_split = args.hf_split
 
     # Get samples
     dataset = build_hf_dataset(
