@@ -32,6 +32,7 @@ def main(input_root, output_root, subfolders, num_split, num_valid_samples_per_s
             for _ in tqdm(fin):
                 total_lines += 1
 
+        # this code will split the data into train and valid                
         num_valid_samples = num_valid_samples_per_subfolder
         num_train_samples = total_lines - num_valid_samples
 
