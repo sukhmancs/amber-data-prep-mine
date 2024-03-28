@@ -1,5 +1,3 @@
-#!/bin/bash
-
 num_lines=$1
 
 # check $num_lines is set
