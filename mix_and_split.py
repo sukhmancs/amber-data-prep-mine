@@ -22,7 +22,7 @@ def main(input_root, output_root, subfolders, num_split, num_valid_samples_per_s
 
     subfolders=subfolders.split(',')
     for subfolder in subfolders:
-        subfolder_input_file = os.path.join(input_root, subfolder,'train_labeled.jsonl')
+        subfolder_input_file = os.path.join(input_root, subfolder,'train.jsonl')
 
         # Calculate total lines in the file
         print(f"Counting lines in: {subfolder}")
