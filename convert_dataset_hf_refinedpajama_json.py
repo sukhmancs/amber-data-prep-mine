@@ -150,7 +150,7 @@ def parse_args() -> Namespace:
     parser.add_argument("--eos_text", type=str, required=False, default=None)
     parser.add_argument("--no_wrap", default=False, action="store_true")
     parser.add_argument("--num_workers", type=int, required=False, default=None)
-    parser.add_argument('hf_split', type=str, required=False, default="train", help='The dataset split to use. Default to "train".')
+    parser.add_argument('--hf_split', type=str, required=False, default="train", help='The dataset split to use. Default to "train".')
 
     parsed = parser.parse_args()
 
